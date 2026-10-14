@@ -1,6 +1,6 @@
 # matchum (맞춤)
 
-[![PyPI](https://img.shields.io/pypi/v/matchum)](https://pypi.org/project/matchum/) [![OpenSSF Baseline](https://www.bestpractices.dev/projects/15483/baseline)](https://www.bestpractices.dev/projects/15483)
+[![PyPI](https://img.shields.io/pypi/v/matchum)](https://pypi.org/project/matchum/) [![OpenSSF Baseline](https://www.bestpractices.dev/projects/15483/baseline)](https://www.bestpractices.dev/en/projects/15483/baseline-1)
 
 로컬에서 동작하는 규칙 기반 한국어 맞춤법 검사 파이썬 라이브러리입니다.
 
