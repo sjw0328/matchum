@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matchum"
+version = "0.1.0"
+description = "규칙 기반 오프라인 한국어 맞춤법 검사 라이브러리"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "서주원 (OMEGA SYSTEMS)" }]
+keywords = ["korean", "spell-checker", "맞춤법", "한국어", "hanspell", "nlp"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: Korean",
+    "Topic :: Text Processing :: Linguistic",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/sjw0328/matchum"
+Issues = "https://github.com/sjw0328/matchum/issues"
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+matchum = "matchum:main"
+
+[tool.setuptools]
+py-modules = ["matchum"]
+
+[tool.pytest.ini_options]
+testpaths = ["."]
