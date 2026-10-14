@@ -161,11 +161,24 @@ class Rule(ABC):
 
 
 def _covered(text: str, start: int, end: int, word: str) -> bool:
-    """text 안에서 word가 [start, end) 구간을 통째로 덮는 위치에 있는지."""
+    """text 안에서 word가 [start, end) 구간을 통째로 덮고, 단어 첫머리에서 시작하는지.
+
+    '날것'은 예외지만 '끝날것'의 '날것'은 예외가 아니다.
+    """
     for st in range(max(0, end - len(word)), start + 1):
-        if text.startswith(word, st):
+        if text.startswith(word, st) and (st == 0 or not _is_hangul(text[st - 1])):
             return True
     return False
+
+
+def _is_hangul(ch: str) -> bool:
+    return "가" <= ch <= "힣"
+
+
+def _iga(word: str) -> str:
+    """끝 글자 받침에 맞는 주격 조사 (이/가)."""
+    last = word.rstrip()[-1:] if word.strip() else ""
+    return "이" if last and has_jongseong(last) else "가"
 
 
 class RegexRule(Rule):
@@ -208,7 +221,7 @@ class WordRule(RegexRule):
             id=id,
             pattern=prefix + re.escape(wrong),
             fix=lambda m, r=right: r,
-            message=message or f"'{right}'이(가) 맞는 표기입니다.",
+            message=message or f"'{right}'{_iga(right)} 맞는 표기입니다.",
             level=level,
             category=category,
             exceptions=exceptions,
@@ -525,7 +538,7 @@ def _if_rieul(repl):
 
 ENDING_RULES = [
     # -ㄹ께 → -ㄹ게   (할께요, 갈께)   '함께'는 받침 ㅁ이라 제외
-    RegexRule("ending.001", r"([가-힣])께" + _END,
+    RegexRule("ending.001", r"([가-힣])께(?=라|란|요|[\s.,!?~\"')\]]|$)",
               _if_rieul(lambda m: m.group(1) + "게"),
               "'-ㄹ게'로 적습니다. (소리는 [께]로 나도 '-ㄹ게')"),
 
@@ -619,6 +632,16 @@ SPACING_RULES = [
     _dep("spacing.004", "줄", "(?= ?(?:알|몰|모))", ["글줄", "날줄", "물줄", "밧줄"],
          "의존명사 '줄'은 띄어 씁니다. (할 줄 안다)"),
 
+    # 부정 부사 '안' + 하다 활용형 → 띄어 씀  (안하기로 → 안 하기로)
+    # 단어 첫머리의 '안'만 대상 ('불안하다', '편안하다', '미안하다'는 제외)
+    # 뒤에 오는 활용형을 좁게 지정해 '안하늘', '안해숙' 같은 인명·'안할트' 같은 지명을 피한다
+    RegexRule("spacing.005",
+              r"(?<![가-힣])안(?=하(?:기|고|면|니|려|는|지|자|게)|해(?:도|서|요|야|[\s.,!?~]|$)"
+              r"|했|할(?:게|래|거|까|[\s.,!?~]|$)|한(?:다|대|데)|합니다|함(?:[\s.,!?~]|$))",
+              lambda m: "안 ",
+              "부정의 '안'은 뒤의 '하다'와 띄어 씁니다. (안 하다)",
+              category=Category.SPACING,
+              exceptions=["안하무인"]),
 ]
 
 
@@ -819,7 +842,7 @@ def main(argv=None) -> int:
 
 
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __all__ = ["Checker", "check", "Rule", "RegexRule", "WordRule", "word_rules",
            "Category", "Correction", "Level", "Result", "spell_checker", "CheckResult",
            "DEFAULT_RULES"]
