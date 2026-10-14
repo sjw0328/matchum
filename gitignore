@@ -1,0 +1,30 @@
+# 빌드 산출물 (저장소에 바이너리를 넣지 않음)
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+*.whl
+*.exe
+*.dll
+*.so
+
+# 비밀 정보 (실수로 올라가지 않도록)
+.env
+.env.*
+.pypirc
+*.pem
+*.key
+*.p12
+*.pfx
+secrets.*
+token*.txt
+
+# 개발 환경
+.venv/
+venv/
+.pytest_cache/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
