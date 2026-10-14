@@ -842,7 +842,7 @@ def main(argv=None) -> int:
 
 
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 __all__ = ["Checker", "check", "Rule", "RegexRule", "WordRule", "word_rules",
            "Category", "Correction", "Level", "Result", "spell_checker", "CheckResult",
            "DEFAULT_RULES"]
