@@ -1,6 +1,6 @@
 # matchum (맞춤)
 
-[![PyPI](https://img.shields.io/pypi/v/matchum)](https://pypi.org/project/matchum/) [![OpenSSF Baseline](https://www.bestpractices.dev/projects/15483/baseline)](https://www.bestpractices.dev/en/projects/15483/baseline-1)
+[![PyPI](https://img.shields.io/pypi/v/matchum)](https://pypi.org/project/matchum/) [![OpenSSF Baseline](https://www.bestpractices.dev/projects/15483/baseline)](https://www.bestpractices.dev/en/projects/15483/baseline-1) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23531936.svg)](https://doi.org/10.5281/zenodo.23531936)
 
 로컬에서 동작하는 규칙 기반 한국어 맞춤법 검사 파이썬 라이브러리입니다.
 
@@ -185,6 +185,13 @@ pytest
 ### 0.1.0 — 2026-10-13
 
 - 첫 공개 버전 (규칙 234개, py-hanspell 호환 계층, 명령줄 도구)
+
+## 인용
+
+Zenodo에 보관되어 있습니다. 인용 정보는 저장소의 `CITATION.cff`(GitHub 오른쪽의 "Cite this repository")를 참고하십시오.
+
+- 모든 버전 DOI: [10.5281/zenodo.23531936](https://doi.org/10.5281/zenodo.23531936)
+- 0.1.3 DOI: [10.5281/zenodo.23531937](https://doi.org/10.5281/zenodo.23531937)
 
 ## 라이선스
 
