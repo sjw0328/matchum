@@ -10,18 +10,32 @@ readme = { file = "README.MD", content-type = "text/markdown" }
 requires-python = ">=3.9"
 license = "MIT"
 license-files = ["LICENSE"]
-authors = [{ name = "서주원 (OMEGA SYSTEMS)" }]
-keywords = ["korean", "spell-checker", "맞춤법", "한국어", "hanspell", "nlp"]
+authors = [{ name = "Juwon Seo (서주원, OMEGA SYSTEMS)" }]
+keywords = ["korean", "spell-checker", "spell-check", "hangul", "맞춤법", "맞춤법 검사기", "한국어", "hanspell", "py-hanspell", "nlp", "offline"]
 classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Natural Language :: Korean",
     "Topic :: Text Processing :: Linguistic",
+    "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = []
 
 [project.urls]
 Homepage = "https://github.com/sjw0328/matchum"
 Issues = "https://github.com/sjw0328/matchum/issues"
+Source = "https://github.com/sjw0328/matchum"
+Changelog = "https://github.com/sjw0328/matchum#변경-이력"
+Author = "https://github.com/sjw0328"
+DOI = "https://doi.org/10.5281/zenodo.23531936"
 
 [project.optional-dependencies]
 dev = ["pytest>=7"]

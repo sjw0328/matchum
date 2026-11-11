@@ -4,6 +4,8 @@
 
 로컬에서 동작하는 규칙 기반 한국어 맞춤법 검사 파이썬 라이브러리입니다.
 
+> **English:** matchum is a rule-based, offline Korean spell checker for Python. It is designed to run locally using only the standard library, and includes a compatibility layer for code written against `py-hanspell`. Early (0.x) version; results are for reference only.
+
 - 외부 서비스에 접속하지 않는 방식으로 설계되었습니다.
 - 파이썬 표준 라이브러리만 사용합니다.
 - 기존 `py-hanspell` 코드를 import 한 줄만 바꿔 옮길 수 있는 호환 계층을 포함합니다.
@@ -211,5 +213,5 @@ MIT License (저장소의 LICENSE 파일 참고)
 
 ## 만든 사람
 
-서주원 (OMEGA SYSTEMS) · <https://pinnn.me/@seodes105>
+서주원 (Juwon Seo, OMEGA SYSTEMS) · [GitHub @sjw0328](https://github.com/sjw0328) · <https://pinnn.me/@seodes105>
 라이선스 문의: seodes105@gmail.com
